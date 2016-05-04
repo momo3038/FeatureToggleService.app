@@ -1,0 +1,26 @@
+
+
+<div class="row marketing" ng-repeat="featType in features">
+<h4>Toggles for {{ featType.Type }}</h4>
+
+<table class="table table-hover">
+    <head>
+  <th>Id</th>
+  <th>Name</th>
+  <th>Etat</th>
+  <th>Description</th>
+  <th>Restricted to</th>
+    </head>
+    <body>
+  <tr ng-repeat="feat in featType.Features">
+  <td>{{ feat.Id }}</td>
+  <td>{{ feat.Name }}</td>
+  <td><toggle ng-model="feat.Enable" ng-change="changed(feat)" on="Enabled" off="Disabled" onstyle="btn-success" size="btn-sm"></toggle></td>
+  <td>{{ feat.Description }}</td>
+  <td>{{ feat.Users }}</td>
+
+  </tr>
+  </body>
+</table>
+<button type="button" class="btn btn-success" nh-click="addFeature(featType.Type)" >Add a toogle for {{ featType.Type }}</button>
+</div>
